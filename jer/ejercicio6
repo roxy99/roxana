@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#Opciones de apagado
+echo ""
+echo "Elija el modo de apagado:"
+echo "[1] Lapso de tiempo (en mins.)"
+echo "[2] Hora determinada"
+echo "[0] Salir"
+read opcion
+echo ""
+case $opcion in
+    1 ) read -p "Ingrese en cuanto desea apagar el equipo en minutos: " countdown;;
+    2 ) read -p "Ingrese la hora de apagado del equipo: " timer;;
+    0 ) exit;;
+    * ) echo "Seleccione una opcion válida"
+esac
+
+if [ "$opcion" = "1" ]; then
+    echo "A elegido apagar el sistema en $countdown minutos "
+    echo "Se necesitan permisos  privilegiados para proceder"
+    echo "Por favor ingrese la contraseña de usuario root"
+su - -c "shutdown -hP +$countdown now"
+elif [ "$opcion" = "2" ]; then
+    echo "A elejido apagar el sistema a las $timer"
+    echo "Se necesitan permisos privilegiados para proceder"
+    echo "Por favor ingrese la contraseña de usuario root"
+su - -c "shutdown -hP $timer -t 30"
+fi
+# Salir del script si la clave es incorrecta
+if [ $? -ne 0 ]; then
+    echo "Clave incorrecta, saliendo del script.."
+    exit 1
+fi
+exit 0
+
+# Todo-list:
+# - Verificar correcto formato de $time ingresado (HH:MM)
+# - Mostar tiempo de apagado (en hora local) luego de ejecutar el comando shutdown.
+# - Mostar el tiempo restante de apagado en cuenta regresiva.
+# - Barra de progreso para lo anterior?
+# - Opción dentro del script para cancelar el shutdown.
+# - Opciones a elegir para pasar a shutdown como -r (reboot), -n (whitout init), etc..
+# - GUI o notificaciones?? (libnotify, glade, zenity, python???)

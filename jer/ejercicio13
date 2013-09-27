@@ -1,0 +1,11 @@
+#!/bin/bash
+
+conectados=`logname`  
+nombres=`hostname`
+user=`id -u -n`
+inf=`id -u `
+echo "Usuario conectado: $conectados"
+echo "Nombre: $nombres"
+echo "Username: $user"
+echo "Informacion sobre el uid: $inf"
+echo "la carpeta personal es :  /home/esteban"

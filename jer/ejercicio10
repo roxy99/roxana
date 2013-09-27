@@ -1,0 +1,8 @@
+#! /bin/bash
+# mostrar permiso y propietario
+
+echo -n "Digite el fichero a verificar permisos y propietarios: "
+read obj 
+echo "Digito el fichero $obj "
+
+sudo ls -la $obj

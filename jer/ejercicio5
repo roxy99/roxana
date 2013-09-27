@@ -1,0 +1,5 @@
+ #!/bin/bash          
+            ORIG="/home/"
+            DEST="/var/copias_de_seguridad/"
+            FICH=home-$(date +%Y%m%d).tgz
+            tar -cZf $DEST$FICH $ORIG

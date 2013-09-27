@@ -1,0 +1,11 @@
+#!/bin/bash
+	
+
+lis=`ls -aR`
+numero=1
+for ele in $lis; do
+	echo "$numero. $ele"
+	numero=$[ numero + 1 ]
+done
+echo "En total hay $numero elementos"
+

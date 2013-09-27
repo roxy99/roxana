@@ -1,0 +1,17 @@
+#!/bin/bash
+#numero par o impar
+
+echo -n "Digite su numero :"
+read num
+
+function par_impar()
+{
+if [ `expr $num % 2` -eq 0 ]
+then 
+echo "$num es un numero Par"
+else
+echo "$num es un numero  Impar"
+fi
+}
+par_impar 2
+exit 0

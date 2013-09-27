@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Script que al pulsar una tecla indique, si es letra , numero o caracter especial "
+read -n 1 tecla
+case $tecla in
+[a-z,A-Z]) echo ":ha introducido una letra"
+;;
+[0-9]) echo ":Ha introducido un numero"
+;;
+*) echo ":Ha introducido un caracter especial"
+;;
+esac

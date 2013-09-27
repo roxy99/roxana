@@ -1,0 +1,11 @@
+#!/bin/sh
+#dividir un archivo
+echo -n "Digite el archivo a unir : "
+read arch 
+echo "se va a dividir el archivo $arch "
+echo -n "Digite el nombre a guardar la union : "
+read arch2
+
+sudo cat "$arch"* > $arch2
+
+

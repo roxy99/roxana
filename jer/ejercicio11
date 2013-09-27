@@ -1,0 +1,4 @@
+#! /bin/bash
+echo 'muestra todos los  usuarios del sistema'
+
+sudo cat /etc/passwd | grep '/bin/bash' | sort

@@ -1,0 +1,10 @@
+#!/bin/sh
+#dividir un archivo
+echo -n "Digite el archivo a dividir : "
+read  archivo 
+echo "se va a dividir el archivo $OBJETO "
+echo -n "Digite en cuantos MB quiere dividir el fichero: "
+read dividir
+echo "Digito $dividir MB"
+
+sudo split $archivo -b "$dividir"MB -d $OBJETO

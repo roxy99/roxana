@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+echo "ingrese en bytes el tamaño del archivo "
+read h
+
+let f=h
+
+t=`dd if=/dev/zero of=archivo.txt bs=$f count=1048576 `
+
+g=`pwd`
+echo "el archivo se ha creado en $g "
