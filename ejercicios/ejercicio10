@@ -1,0 +1,50 @@
+#!/bin/bash
+
+
+clear
+folder="$HOME/bin"
+if [ -d $folder ]; then
+	echo
+	echo "El Directorio $folder Si existe."
+	echo
+
+	archv1=$(find  $HOME/bin/ -type f -executable | wc -l)
+
+	archv2=$(ls -l $HOME/bin/ | grep "^l" | wc -l)
+
+	let archv3=$archv1-$archv2
+
+	find $HOME/bin/ -type f -executable
+
+	echo
+	echo "Total De Archivos Ejecutables: $archv1"
+	echo
+	echo "Total De Archivos Enlazados: $archv2"
+	echo
+	echo "Total Archivos No enlazados: $archv3"
+	echo
+else
+	echo
+	echo "El Directorio $folder No Existe."
+	echo "por lo tanto lo crearemos por ti flojo"
+	echo
+
+	ln -s /bin $HOME/bin
+
+	archv1=$(find  $HOME/bin/ -type f -executable | wc -l)
+
+	archv2=$(ls -l $HOME/bin/ | grep "^l" | wc -l)
+
+	let archv3=$archv1-$archv2
+
+	find $HOME/bin/ -type f -executable
+
+	echo
+	echo "Total De Archivos Ejecutables: $archv1"
+	echo
+	echo "Total De Archivos Enlazados: $archv2"
+	echo
+	echo "Total Archivos No enlazados: $archv3"
+	echo
+
+fi

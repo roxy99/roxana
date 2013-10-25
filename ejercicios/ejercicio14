@@ -1,0 +1,97 @@
+#!/bin/bash
+
+echo "Tus memorias conectadas son"
+mema=`mount| grep /medi | awk '{print $3}' | cut -c16-30 | nl`
+echo "$mema"
+
+echo "_____________________________________________________"
+mem=`mount | grep /dev/sdb | awk '{print $3}' | cut -c1-15 `
+echo "PD: este es el punto de montaje de tu memoria: $mem"
+echo "Por favor ingresa el nombre de la memoria a examinar"
+read l
+ejm="$mem$l"
+if [ -d $ejm ]; then
+echo "_____________________________________________________"
+echo "Esta es la informacion de tu Memoria $l es:"
+
+echo "_____________________________________________________"
+t=`find $mem$l -name *.bat`
+num1=0
+for elm1 in $t; do
+	echo "$elm1"
+	num1=$[num1 + 1]
+done
+	echo "La cantidad de archivos con extencion .bat es: $num1"
+
+echo "_____________________________________________________"
+t2=`find $mem$l -name *.lnk`
+num2=0
+for elm2 in $t2; do
+	echo "$elm2"
+	num2=$[num2 + 1 ]
+done
+	echo "La cantidad de archivos con extencion .lnk es: $num2 "
+
+echo "_____________________________________________________"
+t3=`find $mem$l -name *.com`
+num3=0
+for elm3 in $t3; do
+	echo "$elm3"
+	num3=$[num3 + 1 ]
+done
+	echo "La cantidad de archivos con extencion .com es: $num3 "
+
+echo "_____________________________________________________"
+t4=`find $mem$l -name *.inf`
+num4=0
+for elm4 in $t4; do
+	echo "$elm4"
+	num4=$[num4 + 1 ]
+done
+	echo "La cantidad de archivos con extencion .inf es: $num4"
+
+echo "_____________________________________________________"
+t5=`find $mem$l -name *.bin`
+num5=0
+for elm5 in $t5; do
+	echo "$elm5"
+	num5=$[num5 + 1 ]
+done
+	echo "La cantidad de archivos con extencion .bin es: $num5"
+
+echo "_____________________________________________________"
+t6=`find $mem$1 -name *.vbs`
+num6=0
+for elm6 in $t6; do
+	echo "$elm6"
+	num6=$[num6 + 1]
+done
+	echo "La cantidad de archivos con extencion .vbs es: $num6"
+
+echo "_____________________________________________________"
+echo "Que deseas hacer"
+echo "Digita 1 para eliminar tus archivos "
+echo "Digita 2 para salir del script"
+
+read bor
+
+let bor2=bor
+
+if [ $bor2 -eq '1' ]; then
+	borrador=`rm $mem$l/*.bat`
+	borrador2=`rm $mem$l/*.lnk`
+	borrador3=`rm $mem$l/*.vbs`
+	borrador4=`rm $mem$l/*.inf`
+	borrador5=`rm $mem$l/*.com`
+
+	echo "Soy la  funcion del si"
+else
+echo "Has digitado 2 "
+exit
+fi
+
+
+else
+echo "La Memoria que quieres examinar no existe vuelve a intentarlo"
+exit
+fi

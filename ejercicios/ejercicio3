@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#Buscar dentro del directorio $HOME los archivos que hayan sido modificados el día de ayer.
+
+echo " Eston son los archivos que se modificaron el dia de ayer en el directorio $HOME"
+echo "PD: algunos archivos necesitan privilegios para verlos,para esto debera loguearse como usuario root "
+ayer=`find /home -mtime 0 | less`
+echo "$ayer"

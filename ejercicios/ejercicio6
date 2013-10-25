@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Tus particiones tienen la siguiente informacion "
+echo "_______________________________________________"
+libre=`df -h | cut -c1-38`
+
+echo "$libre"

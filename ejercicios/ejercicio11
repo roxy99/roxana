@@ -1,0 +1,28 @@
+#!/bin/bash
+
+j=`date | awk '{print $4}' `
+usu=`whoami`
+echo "______________________________________"
+echo "La hora actual de su sistema es: $j"
+echo "El usuario que esta logueado es: $usu"
+echo "______________________________________"
+
+
+echo "Ingresa la hora que quiere validar"
+read o
+
+
+if [ $o  -ge   '0001' -a  $o -lt '1259' ]; then
+		echo "Buenos dias señor usuario"
+		sleep 10;nano Esteban-Torres
+
+elif [  $o -ge '1300' -a  $o -lt '1959'  ]; then
+		echo "Buenas tardes señor usuario"
+
+elif [  $o -ge '2000' -a  $o -le '2459'  ]; then
+			echo "Buenas noches Señor usuario"
+			sle=`sleep 3s;exit`
+else
+echo "Hora no valida"
+exit
+fi

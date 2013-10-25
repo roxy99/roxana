@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Ingrese el proceso al cual desea buscar su ID"
+read pro
+
+proce=`ps aux | grep $pro | awk '{print $2}' | head -n 1`
+echo "el ID del proceso $pro  es el : $proce"

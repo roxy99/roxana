@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+Memoria=`free -m | head -n 2 | cut -c1-45`
+echo "________________________________________________"
+echo "La memoria Fisica tiene la siguiente informacion"
+echo "$Memoria"
+echo "________________________________________________"
+echo "La memoria Swap tiene la siguiente informacion"
+memswap1=`free |cut -c1-45| head -n 1`
+memsawap=`free -m |cut -c1-45 | grep -i Swap*`
+echo "$memswap1"
+echo "$memsawap"
