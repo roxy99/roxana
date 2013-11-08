@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "El Script esta eliminando  el archivo"
+time rm -r /test/particion_jfs/acrhi1.fs 

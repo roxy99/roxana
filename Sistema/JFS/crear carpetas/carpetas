@@ -1,0 +1,19 @@
+#!/bin/bash 
+#Estructura repetitiva While
+
+CARP=0
+VAR=0
+time while [ $CARP -lt 1000  ]; do
+	mkdir /test/particion_jfs/$CARP
+
+	while [ $VAR -lt 50  ]; do
+        touch /test/particion_jfs/$CARP/$VAR
+ 	VAR=$[ $VAR + 1  ]
+
+	done
+	
+	CARP=$[ $CARP + 1  ]
+ 	VAR=0
+done
+ echo "todo salio super bien :)" 
+

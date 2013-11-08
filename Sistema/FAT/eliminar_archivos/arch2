@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "El Script esta creando el archivo"
+time rm -r /test/particion_fat/archi2.fs
