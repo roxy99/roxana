@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo "El Script esta creando el archivo"
-time dd if=/dev/zero of=/test/particion_jfs/archi2.fs count=4000000

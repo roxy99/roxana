@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo "El Script esta creando el archivo"
-time dd if=/dev/zero of=/test/particion_btrfs/acrhi1.fs count=2000000
